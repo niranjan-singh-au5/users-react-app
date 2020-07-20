@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { loginApi, userLogin } from "../actionCreators/action";
+import { Link } from "react-router-dom";
+
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -45,14 +47,14 @@ function Login() {
             Keep me logged in
           </label>
         </div>
-        <button
+        <Link
           type='button'
           className='btn btn-primary'
           onClick={() => handleUserLogin()}
-          disabled={username && password ? false : true}
+          to={username && password ? "/users" : "/login"}
         >
           Login
-        </button>
+        </Link>
       </div>
     </div>
   );

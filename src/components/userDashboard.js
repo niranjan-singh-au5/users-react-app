@@ -8,6 +8,14 @@ function Dashboard({ dashboard, userDashboard, specificUser }) {
   }, []);
   return (
     <div>
+      <Link
+        type='button'
+        className='btn btn-primary float-right mt-2'
+        onClick={() => localStorage.removeItem("token")}
+        to='/login'
+      >
+        Log Out
+      </Link>
       <table class='table responsive '>
         <thead class='thead-dark'>
           <tr>
