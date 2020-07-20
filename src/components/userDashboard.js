@@ -16,8 +16,8 @@ function Dashboard({ dashboard, userDashboard, specificUser }) {
       >
         Log Out
       </Link>
-      <table class='table responsive '>
-        <thead class='thead-dark'>
+      <table className='table responsive '>
+        <thead className='thead-dark'>
           <tr>
             <th scope='col'>Email</th>
             <th scope='col'>First Name</th>

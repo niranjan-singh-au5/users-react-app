@@ -1,16 +1,18 @@
 import axios from "axios";
-export const loginApi = async () => {
-   var data = await axios.get("https://reqres.in/api/login");
-   return data
-}
+// export const userLogin = async () => {
+//    var data = await axios.get("https://reqres.in/api/login");
+//    return (dispatch) => {
+//       data.then(res)
+//    }
+// }
 
-export const userLogin = async (username, password) => {
+export const userLogin = (username, password) => {
    const data = axios({
       method: "POST",
       url: "https://reqres.in/api/login",
       data: {
-         "email": "eve.holt@reqres.in",
-         "password": "pistol"
+         "email": username,
+         "password": password
       }
    })
    return data
@@ -42,3 +44,4 @@ export const specificUser = (id) => {
       }).catch(err => console.log(err))
    }
 }
+

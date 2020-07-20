@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { loginApi, userLogin } from "../actionCreators/action";
+import { userLogin } from "../actionCreators/action";
 import { Link } from "react-router-dom";
-
+import { connect } from "react-redux";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  // const [token, setToken] = useState('')
   const handleUserLogin = () => {
-    userLogin(username, password).then((res) =>
-      localStorage.setItem("token", res.data.token)
-    );
+    userLogin(username, password)
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+      })
+      .catch((res) => alert("invalid user"));
   };
   return (
     <div className='col-md-3 offset-4 mt-5 bg-light shadow p-2'>
       <div className='form-group mt-2'>
-        <label for='exampleInputEmail1'>User Name:</label>
+        <label htmlFor='exampleInputEmail1'>User Name:</label>
         <input
           type='text'
           className='form-control'
@@ -27,7 +30,7 @@ function Login() {
         </small>
       </div>
       <div className='form-group'>
-        <label for='exampleInputPassword1'>Password:</label>
+        <label htmlFor='exampleInputPassword1'>Password:</label>
         <input
           type='password'
           className='form-control'
@@ -43,7 +46,7 @@ function Login() {
             className='form-check-input'
             id='exampleCheck1'
           />
-          <label className='form-check-label' for='exampleCheck1'>
+          <label className='form-check-label' htmlFor='exampleCheck1'>
             Keep me logged in
           </label>
         </div>
